@@ -34,6 +34,7 @@ public abstract class Key {
         for(int key : keyCombo) {
             this.controller.robot.keyPress(key);
         }
+        this.controller.robot.delay(100);
         for(int key : keyCombo) {
             this.controller.robot.keyRelease(key);
         }

@@ -7,6 +7,7 @@ import com.sekwah.midistreamcontroller.keys.Key;
 import com.sekwah.midistreamcontroller.keys.SceneKey;
 
 import javax.swing.*;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -73,6 +74,7 @@ public class ControllerWindow extends JFrame {
                 @Override
                 public void run() {
                     selectScene(this.sceneId);
+                    this.runKeys(KeyEvent.VK_NUMPAD0 + this.sceneId);
                 }
             });
         }
@@ -85,11 +87,53 @@ public class ControllerWindow extends JFrame {
                     streaming = false;
                     controller.setGrid(this.getX(), this.getY(), LightData.RED_HIGH, LightStatus.STATUS_ON);
                     controller.setGrid(8, 8, LightData.RED_HIGH, LightStatus.STATUS_ON);
+                    this.runKeys(KeyEvent.VK_ALT, KeyEvent.VK_ENTER);
                 }
                 else {
                     streaming = true;
                     controller.setGrid(this.getX(), this.getY(), LightData.GREEN_HIGH, LightStatus.STATUS_ON);
                     controller.setGrid(8, 8, LightData.RED_HIGH, LightStatus.STATUS_OFF);
+                    this.runKeys(KeyEvent.VK_ALT, KeyEvent.VK_SUBTRACT);
+                }
+            }
+        });
+
+        // Mic audio
+        this.registerKey(new Key(this.midiController, 4, 8, LightData.GREEN_HIGH) {
+
+            private boolean muted = true;
+
+            @Override
+            public void run() {
+                if(this.muted) {
+                    this.muted = false;
+                    this.runKeys(KeyEvent.VK_NUMPAD6);
+                    controller.setGrid(this.x, this.y, LightData.RED_HIGH, LightStatus.STATUS_ON);
+                }
+                else {
+                    this.muted = true;
+                    this.runKeys(KeyEvent.VK_NUMPAD9);
+                    this.controller.setGrid(this.x, this.y, LightData.GREEN_HIGH, LightStatus.STATUS_ON);
+                }
+            }
+        });
+
+        // Desktop audio
+        this.registerKey(new Key(this.midiController, 5, 8, LightData.GREEN_HIGH) {
+
+            private boolean muted = true;
+
+            @Override
+            public void run() {
+                if(this.muted) {
+                    this.muted = false;
+                    this.runKeys(KeyEvent.VK_NUMPAD7);
+                    controller.setGrid(this.x, this.y, LightData.RED_HIGH, LightStatus.STATUS_ON);
+                }
+                else {
+                    this.muted = true;
+                    this.runKeys(KeyEvent.VK_NUMPAD8);
+                    this.controller.setGrid(this.x, this.y, LightData.GREEN_HIGH, LightStatus.STATUS_ON);
                 }
             }
         });
