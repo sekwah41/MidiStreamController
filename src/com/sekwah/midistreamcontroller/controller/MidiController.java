@@ -135,7 +135,7 @@ public class MidiController {
             // It is just a data array, data[0] (unsure about data sent...) data[1] data[2]
             byte[] data = msg.getMessage();
 
-            System.out.println(name + "midi received: " + data[1]);
+            System.out.println(name + " midi received: " + data[1]);
 
             int y = data[1] / 16;
             int x = data[1] % 16;
