@@ -79,21 +79,21 @@ public class ControllerWindow extends JFrame {
             });
         }
 
-        this.registerKey(new Key(this.midiController, 1, 8, LightData.RED_HIGH) {
+        this.registerKey(new Key(this.midiController, 1, 8, LightData.GREEN_HIGH) {
 
             @Override
             public void run() {
                 if(streaming) {
                     streaming = false;
-                    controller.setGrid(this.getX(), this.getY(), LightData.RED_HIGH, LightStatus.STATUS_ON);
+                    controller.setGrid(this.getX(), this.getY(), LightData.GREEN_HIGH, LightStatus.STATUS_ON);
                     controller.setGrid(8, 8, LightData.RED_HIGH, LightStatus.STATUS_ON);
                     this.runKeys(KeyEvent.VK_ALT, KeyEvent.VK_SUBTRACT);
                 }
                 else {
                     streaming = true;
-                    controller.setGrid(this.getX(), this.getY(), LightData.GREEN_HIGH, LightStatus.STATUS_ON);
+                    controller.setGrid(this.getX(), this.getY(), LightData.RED_HIGH, LightStatus.STATUS_ON);
                     controller.setGrid(8, 8, LightData.RED_HIGH, LightStatus.STATUS_OFF);
-                    this.runKeys(KeyEvent.VK_ALT, KeyEvent.VK_PLUS);
+                    this.runKeys(KeyEvent.VK_ALT, KeyEvent.VK_ADD);
                 }
             }
         });
