@@ -87,13 +87,13 @@ public class ControllerWindow extends JFrame {
                     streaming = false;
                     controller.setGrid(this.getX(), this.getY(), LightData.RED_HIGH, LightStatus.STATUS_ON);
                     controller.setGrid(8, 8, LightData.RED_HIGH, LightStatus.STATUS_ON);
-                    this.runKeys(KeyEvent.VK_ALT, KeyEvent.VK_PLUS);
+                    this.runKeys(KeyEvent.VK_ALT, KeyEvent.VK_SUBTRACT);
                 }
                 else {
                     streaming = true;
                     controller.setGrid(this.getX(), this.getY(), LightData.GREEN_HIGH, LightStatus.STATUS_ON);
                     controller.setGrid(8, 8, LightData.RED_HIGH, LightStatus.STATUS_OFF);
-                    this.runKeys(KeyEvent.VK_ALT, KeyEvent.VK_SUBTRACT);
+                    this.runKeys(KeyEvent.VK_ALT, KeyEvent.VK_PLUS);
                 }
             }
         });
