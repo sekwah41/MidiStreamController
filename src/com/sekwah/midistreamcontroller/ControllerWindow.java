@@ -87,7 +87,7 @@ public class ControllerWindow extends JFrame {
                     streaming = false;
                     controller.setGrid(this.getX(), this.getY(), LightData.RED_HIGH, LightStatus.STATUS_ON);
                     controller.setGrid(8, 8, LightData.RED_HIGH, LightStatus.STATUS_ON);
-                    this.runKeys(KeyEvent.VK_ALT, KeyEvent.VK_ENTER);
+                    this.runKeys(KeyEvent.VK_ALT, KeyEvent.VK_PLUS);
                 }
                 else {
                     streaming = true;

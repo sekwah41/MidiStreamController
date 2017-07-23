@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MidiStreamController:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MidiStreamController_jar</output-path>
+    <root id="archive" name="MidiStreamController.jar">
+      <element id="module-output" name="MidiStreamController" />
+    </root>
+  </artifact>
+</component>
