@@ -19,7 +19,7 @@ public class ControllerWindow extends JFrame {
 
     private long currentTime = 0;
 
-    private int sceneCount = 3;
+    private int sceneCount = 4;
 
     private boolean streaming = false;
 
